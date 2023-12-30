@@ -8,7 +8,7 @@ This project is part of the research grant "Preparation of metrological safeguar
 - Soldering DACs, multiplexer and I2C bus on Arduino Portenta Breakout Board
 - Testing the connection, generation of rectangular and triangular signals on all DACs - [dac5](./codes/ArduinoPortenta/dac5/dac5.ino)
 - Testing SD card reading - [slotSD](./codes/ArduinoPortenta/slotSD/slotSD.ino)
-- Generation of a signal from a CSV file (created by cutting a part of one of the recorded signals - [signal](./data/vehicle 1/signal.csv)) on one of the DACs - [signalCSV](./codes/ArduinoPortenta/signalCSV/signalCSV.ino)
+- Generation of a signal from a CSV file (created by cutting a part of one of the recorded signals - [signal](./data/vehicle1/signal.csv)) on one of the DACs - [signalCSV](./codes/ArduinoPortenta/signalCSV/signalCSV.ino)
 - Signals on the Arduino Portent generated slowly, comparison of the generation speed with esp32 - [slotSD](./codes/ArduinoPortenta/slotSD/slotSD.ino)
 - Ordering SD card module to generate signal from CSV file on esp 32 and testing - [zadajnikpojedynczy](./codes/zadajnikpojedynczy/zadajnikpojedynczy.ino)
 - Module didn't work on esp32
@@ -16,6 +16,6 @@ This project is part of the research grant "Preparation of metrological safeguar
 - Module didn't work on Arduino Portenta
 - Ordering anothere SD card module and testing
 - Module worked
-- Generation of a signal from a CSV file (same one that was mentioned previously - ) on one of the DACs - [SD](/codes/esp32/SDesp32/SDesp32.ino)
+- Generation of a signal from a CSV file (same one that was mentioned previously - [signal](./data/vehicle1/signal.csv)) on one of the DACs - [SD](/codes/esp32/SDesp32/SDesp32.ino)
 - Module worked, esp32 was generating faster than Arduino Portenta
 - Switching to Arduino Uno
