@@ -1,6 +1,6 @@
 # SignalTransmitter
 ## General description
-This project is part of the research grant "Preparation of metrological safeguards for the introduction of systems WIM systems operating in "direct mass enforcement" (e-WIM)", from the "Polish Metrology" programme. The project manager is Ph.D. Eng Ryszard Sroka. My part in this project consists of generating previously recorded signals by a device measuring the weight of moving vehicles. The measurements were taken for different types of vehicles and stored in CSV files.
+This project is part of the research grant "Preparation of metrological safeguards for the introduction of systems WIM systems operating in "direct mass enforcement" (e-WIM)", from the "Polish Metrology" programme. The project manager is Ph.D. Eng Ryszard Sroka. My part in this project is to generate previously recorded signals by a device measuring the weight of moving vehicles. The measurements were taken for different types of vehicles and stored in CSV files.
 ## Contents of folders
 - codes - all codes sorted by the modules they are written for
 - data - CSV files with data collected from the measuring device, photos of vehicles and signal runs. All sorted by individual vehicles.
