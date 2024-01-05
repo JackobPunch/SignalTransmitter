@@ -62,7 +62,6 @@ void loop() {
 
     if (signalFile) {
       Serial.println("Starting of generation");
-      // Larger buffer size for reading lines with two values
       char buffer[64];
 
       while (signalFile.available()) {
