@@ -5,9 +5,9 @@ This project is part of the research grant "Preparation of metrological safeguar
 - codes - all codes sorted by the modules they are written for
 - data - CSV files with data collected from the measuring device, photos of vehicles and signal runs. All sorted by individual vehicles.
 ## Brief description of progress
-- Soldering DACs, multiplexer, I2C bus on Arduino Portenta Breakout Board and connecting the circuit [photo1](./gallery/photo1.png)
-- Testing the connection, generation of rectangular and triangular signals on all DACs - [code](./codes/ArduinoPortenta/dac5/dac5.ino) [photo2](./gallery/photo2.png) [video1](./gallery/video1.mp4) [video2](./gallery/video2.mp4)
-- Graphing selected waveforms from CSV files using the matplotlib library - [code](./codes/ArduinoPortenta/dac5/dac5.ino)
+- Soldering DACs, multiplexer, I2C bus on Arduino Portenta Breakout Board and connecting the circuit [photo](./gallery/photo1.jpeg)
+- Testing the connection, generation of rectangular and triangular signals on all DACs - [code](./codes/ArduinoPortenta/dac5/dac5.ino) [photo](./gallery/photo2.png) [video1](./gallery/video1.mp4) [video2](./gallery/video2.mp4)
+- Graphing selected waveforms from CSV files using the matplotlib library - [code](./codes/ArduinoPortenta/dac5/dac5.ino) [photo](./gallery/photo1.2.png)
 - Testing the sd card reading from the slot on the Arduino Portenta Breakout Board- [code](./codes/ArduinoPortenta/slotSD/slotSD.ino)
 - Generation of a signal from a CSV file (created by cutting a part of one of the recorded signals - [signal.CSV](./data/vehicle1/signal.csv)) on one of the DACs - [code](./codes/ArduinoPortenta/signalCSV/signalCSV.ino) [photo3](./gallery/photo3.jpg) [photo4](./gallery/photo4.jpg)
 - Signals on the Arduino Portent generated slowly, comparison of the generation of triangular signals on one DACs speed with esp32 - [code](./codes/zadajnikpojedynczy/zadajnikpojedynczy.ino) [photo5](./gallery/photo5.jpg)
@@ -15,7 +15,7 @@ This project is part of the research grant "Preparation of metrological safeguar
 - Module didn't work with esp32
 - Soldering of SPI bus on Arduino Portenta Breakout Board and testing SD Card module - [code](./codes/ArduinoPortenta/SD/SD.ino)
 - Module didn't work with Arduino Portenta
-- Ordering another SD card modules and testing if it works [photo7](./gallery/photo7.jpg)
+- Ordering another SD card modules and testing if it works [photo7](./gallery/photo7.jpeg)
 - Module worked
 - Generation of a signal from a CSV file (same one that was mentioned previously - [signal.CSV](./data/vehicle1/signal.csv)) on one of the DACs [code](/codes/esp32/CSVsignalesp32/CSVsignalesp32.ino)
 - Module worked, esp32 was generating faster than Arduino Portenta
