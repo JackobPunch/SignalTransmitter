@@ -5,14 +5,11 @@ SDMMCBlockDevice block_device;
 mbed::FATFileSystem fs("fs");
 
 void setup() {
-  // put your setup code here, to run once:
   delay(2000);
   Serial.begin(115200);
   Serial.println("Test");
   int err =  fs.mount(&block_device);
   if (err) {
-    // Reformat if we can't mount the filesystem
-    // this should only happen on the first boot
     Serial.println("No filesystem found, formatting... ");
     fflush(stdout);
     err = fs.reformat(&block_device);
@@ -26,6 +23,4 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
 }
