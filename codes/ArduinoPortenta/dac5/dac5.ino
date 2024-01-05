@@ -20,7 +20,7 @@ void setup()
     while (!Serial);
     delay(1000);
 
-    //Załączenie magistrali na rozszerzeniu płytki
+    //Bus connection at the board extension
     Breakout.I2C_0.begin();
 
     Wire.begin();
@@ -28,7 +28,7 @@ void setup()
     Serial.begin(115200);
     Serial.println("\nTCAScanner ready!");
 
-    //Sprawdzenie czy DAC zostały poprawnie podłączone
+    //Check that the DACs have been connected correctly
     for (uint8_t t=0; t<8; t++) {
       tcaselect(t);
       Serial.print("TCA Port #"); Serial.println(t);
@@ -42,9 +42,9 @@ void setup()
         }
       }
     }
-    Serial.println("\ndone");
+    Serial.println("done");
 
-    //Zaadresowanie poszczególnych DAC
+    //Addressing individual DACs
     for (uint8_t i=0; i<5; i++) {
     tcaselect(i);
     p[i].begin(0x62);
@@ -53,17 +53,17 @@ void setup()
 
 void loop() 
 {
-  // //Na zmianę co 2 sekundy sygnał maksymalny i zerowy
-  // for (int i=0; i<5; i++) {
-  //   tcaselect(i);
-  //   p[i].setVoltage(4095, false);
-  // }
-  // delay(2000);
-  // for (int i=0; i<5; i++) {
-  //   tcaselect(i);
-  //   p[i].setVoltage(0, false);
-  // }
-  // delay(2000);
+  //Rectangular signal with a period of 4s
+  /*for (int i=0; i<5; i++) {
+     tcaselect(i);
+     p[i].setVoltage(4095, false);
+   }
+   delay(2000);
+   for (int i=0; i<5; i++) {
+     tcaselect(i);
+     p[i].setVoltage(0, false);
+   }
+   delay(2000);*/
 
   // Sygnał trójkątny ale tylko na wybranym paśmie widocznym na diodach
   int counter;

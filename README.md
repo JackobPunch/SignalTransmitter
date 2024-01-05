@@ -8,7 +8,7 @@ This project is part of the research grant "Preparation of metrological safeguar
 ## Brief description of progress
 - Soldering DACs, multiplexer, I2C bus on Arduino Portenta Breakout Board and connecting the circuit [photo](./gallery/photo1.jpeg)
 - Testing the connection, generation of rectangular and triangular signals on all DACs - [code](./codes/ArduinoPortenta/dac5/dac5.ino), [photo](./gallery/photo2.png), [video](./gallery/video1.mp4), [video](./gallery/video2.mp4)
-- Graphing selected waveforms from CSV files using the matplotlib library - [code](./codes/Python/csv.ipynb), [photo](./gallery/photo1.2.png)
+- Graphing selected waveforms from CSV files using the matplotlib library - [code](./codes/Python/waveform.ipynb), [photo](./gallery/photo1.2.png)
 - Testing the sd card reading from the slot on the Arduino Portenta Breakout Board- [code](./codes/ArduinoPortenta/slotSD/slotSD.ino)
 - Generation of a signal from a CSV file (created by cutting a part of one of the recorded signals - [signal.CSV](./data/vehicle1/signal.csv)) on one of the DACs - [code](./codes/ArduinoPortenta/signalCSV/signalCSV.ino) [photo](./gallery/photo3.jpg), [photo](./gallery/photo4.jpg)
 - Signals on the Arduino Portent generated slowly, comparison of the generation of triangular signals on one DACs speed with esp32 - [code](./codes/zadajnikpojedynczy/zadajnikpojedynczy.ino), [photo](./gallery/photo5.jpg)
@@ -21,5 +21,5 @@ This project is part of the research grant "Preparation of metrological safeguar
 - Generation of a signal from a CSV file (same one that was mentioned previously - [signal.CSV](./data/vehicle1/signal.csv)) on one of the DACs [code](/codes/esp32/CSVsignalesp32/CSVsignalesp32.ino)
 - Module worked, esp32 was generating faster than Arduino Portenta
 - Switching to Arduino Uno - [photo](./gallery/photo8.jpg)
-- Generating all four signals from a CSV file (created by cutting a part of four of the recorded signals - [signal2.CSV](./data/vehicle1/signal2.csv)) - [code](./codes/ArduinoPortenta/dac5/dac5.ino), [photo](./gallery/photo9.jpg)
-- Currently working on accelerating and synchronising the generation by reducing the number of samples in the csv file - [code](./codes/ArduinoPortenta/dac5/dac5.ino)
+- Generating all four signals from a CSV file (created by cutting a part of four of the recorded signals - [signal2.CSV](./data/vehicle1/signal2.csv)) - [code](./codes/ArduinUno/all4signals/all4signals.ino), [photo](./gallery/photo9.jpg)
+- Currently working on accelerating and synchronising the generation by reducing the number of samples in the csv file - [code](./codes/Python/csv.ipynb)

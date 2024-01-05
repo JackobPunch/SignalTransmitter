@@ -41,9 +41,6 @@ void loop() {
 
     // Set the voltage on the DAC
     p.setVoltage(value, false);
-
-    // Wait for a short time before setting the next voltage
-    //delay(10);
   }
   delay(1000);
 }
