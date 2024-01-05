@@ -8,7 +8,7 @@ This project is part of the research grant "Preparation of metrological safeguar
 ## Brief description of progress
 - Soldering DACs, multiplexer, I2C bus on Arduino Portenta Breakout Board and connecting the circuit [photo](./gallery/photo1.jpeg)
 - Testing the connection, generation of rectangular and triangular signals on all DACs - [code](./codes/ArduinoPortenta/dac5/dac5.ino), [photo](./gallery/photo2.png), [video](./gallery/video1.mp4), [video](./gallery/video2.mp4)
-- Graphing selected waveforms from CSV files using the matplotlib library - [code](./codes/Python/waveforms.ipynb), [photo](./gallery/photo1.2.png)
+- Graphing selected waveforms from CSV files from the data ([data.CSV](./data/vehicle1/2022_12_13_13_59_34_KANAL1_KANAL2.csv) using the matplotlib library and comparison with the waveforms included in the data - [code](./codes/Python/waveforms.ipynb), [photo](./data/vehicle1/2022_12_13_13_59_33_CHANNEL1_CHANNEL2.png) 
 - Testing the sd card reading from the slot on the Arduino Portenta Breakout Board- [code](./codes/ArduinoPortenta/slotSD/slotSD.ino)
 - Generation of a signal from a CSV file (created by cutting a part of one of the recorded signals - [signal.CSV](./data/vehicle1/signal.csv)) on one of the DACs - [code](./codes/ArduinoPortenta/signalCSV/signalCSV.ino) [photo](./gallery/photo3.jpg), [photo](./gallery/photo4.jpg)
 - Signals on the Arduino Portent generated slowly, comparison of the generation of triangular signals on one DACs speed with esp32 - [code](./codes/Comparison/Comparison.ino), [photo](./gallery/photo5.png)
