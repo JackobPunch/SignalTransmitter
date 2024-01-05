@@ -11,7 +11,7 @@ This project is part of the research grant "Preparation of metrological safeguar
 - Graphing selected waveforms from CSV files using the matplotlib library - [code](./codes/Python/waveform.ipynb), [photo](./gallery/photo1.2.png)
 - Testing the sd card reading from the slot on the Arduino Portenta Breakout Board- [code](./codes/ArduinoPortenta/slotSD/slotSD.ino)
 - Generation of a signal from a CSV file (created by cutting a part of one of the recorded signals - [signal.CSV](./data/vehicle1/signal.csv)) on one of the DACs - [code](./codes/ArduinoPortenta/signalCSV/signalCSV.ino) [photo](./gallery/photo3.jpg), [photo](./gallery/photo4.jpg)
-- Signals on the Arduino Portent generated slowly, comparison of the generation of triangular signals on one DACs speed with esp32 - [code](./codes/zadajnikpojedynczy/zadajnikpojedynczy.ino), [photo](./gallery/photo5.jpg)
+- Signals on the Arduino Portent generated slowly, comparison of the generation of triangular signals on one DACs speed with esp32 - [code](./codes/Comparison/Comparison.ino), [photo](./gallery/photo5.jpg)
 - Ordering SD card module and testing if it works with esp32- [code](/codes/esp32/SDesp32/SDesp32.ino), [photo](./gallery/photo6.jpg) 
 - Module didn't work with esp32
 - Soldering of SPI bus on Arduino Portenta Breakout Board and testing SD Card module - [code](./codes/ArduinoPortenta/SD/SD.ino)
