@@ -6,7 +6,7 @@ This project is part of the research grant "Preparation of metrological safeguar
 - data - CSV files with data collected from the measuring device, photos of vehicles and signal runs. All sorted by individual vehicles
 - gallery - photos and films of the work
 ## Brief description of progress
-- Soldering DACs, multiplexer, I2C bus on Arduino Portenta Breakout Board and starting connecting the circuit [photo](./gallery/photo1.jpeg)
+- Soldering DACs, multiplexer, I2C bus on Arduino Portenta Breakout Board and connecting the circuit [photo](./gallery/photo1.jpeg)
 - Testing the connection, generation of rectangular and triangular signals on all DACs - [code](./codes/ArduinoPortenta/dac5/dac5.ino), [photo](./gallery/photo2.png), [video](./gallery/video1.mp4), [video](./gallery/video2.mp4)
 - Graphing selected waveforms from CSV files from the data ([data.CSV](./data/vehicle1/2022_12_13_13_59_34_KANAL1_KANAL2.csv)) using the matplotlib library and comparison with the waveforms included in the data - [code](./codes/Python/waveforms.ipynb), [photo](./data/vehicle1/2022_12_13_13_59_33_CHANNEL1_CHANNEL2.png) 
 - Testing the sd card reading from the slot on the Arduino Portenta Breakout Board- [code](./codes/ArduinoPortenta/slotSD/slotSD.ino)
