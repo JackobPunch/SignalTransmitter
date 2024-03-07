@@ -6,7 +6,7 @@ This project is part of the research grant "Preparation of metrological safeguar
 - data - CSV files with data collected from the measuring device, photos of vehicles and signal runs. All sorted by individual vehicles
 - gallery - photos and films of the work
 ## Brief description of progress
-- Soldering DACs, multiplexer, I2C bus on Arduino Portenta Breakout Board and connecting the circuit [photo](./gallery/photo1.jpeg)
+- Soldering DACs (MCP4725), multiplexer (TCA9548A), I2C bus on Arduino Portenta Breakout Board and connecting the circuit [photo](./gallery/photo1.jpeg)
 - Testing the connection, generation of rectangular and triangular signals on all DACs - [code](./codes/ArduinoPortenta/dac5/dac5.ino), [photo](./gallery/photo2.png), [video](./gallery/video1.mp4), [video](./gallery/video2.mp4)
 - Graphing selected waveforms from CSV files from the data ([data.CSV](./data/vehicle1/2022_12_13_13_59_34_KANAL1_KANAL2.csv)) using the matplotlib library and comparison with the waveforms included in the data - [code](./codes/Python/waveforms.ipynb), [photo](./data/vehicle1/2022_12_13_13_59_33_CHANNEL1_CHANNEL2.png) 
 - Testing the sd card reading from the slot on the Arduino Portenta Breakout Board- [code](./codes/ArduinoPortenta/slotSD/slotSD.ino)
@@ -22,4 +22,5 @@ This project is part of the research grant "Preparation of metrological safeguar
 - Module worked, esp32 was generating faster than Arduino Portenta
 - Switching to Arduino Uno - [photo](./gallery/photo8.jpg)
 - Generating all four signals from a CSV file (created by cutting a part of four of the recorded signals - [signal2.CSV](./data/vehicle1/signal2.csv)) - [code](./codes/ArduinUno/all4signals/all4signals.ino), [photo](./gallery/photo9.jpg)
-- Currently working on accelerating and synchronising the generation by reducing the number of samples in the csv file - [code](./codes/Python/csv.ipynb)
+- Working on accelerating and synchronising the generation by reducing the number of samples in the csv file - [code](./codes/Python/csv.ipynb)
+- Changing the DACs (MCP4725) to a single DAC (MCP4728) with four channels
