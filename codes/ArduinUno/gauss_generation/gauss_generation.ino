@@ -1,6 +1,8 @@
 #include <Adafruit_MCP4728.h>
 #include <Wire.h>
+
 Adafruit_MCP4728 mcp;
+
 // Function to generate a Gaussian
 double generate_gaussian(double a, double b, double c, double x) {
     return a * exp(-pow((x - b), 2) / (2 * pow(c, 2)));
@@ -29,7 +31,7 @@ void setup() {
     for (int i = 0; i < num_points; ++i) {
         x_values[i] = -5.0 + i * step_size;
     }
-    
+
     // Compute y values using the Gaussian function
     double y_values[num_points];
     for (int i = 0; i < num_points; ++i) {
