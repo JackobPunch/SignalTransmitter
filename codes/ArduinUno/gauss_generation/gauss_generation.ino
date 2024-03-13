@@ -1,10 +1,28 @@
-#include <Adafruit_MCP4728.h>
-#include <Wire.h>
+// Simple implementation of the exponential function
+double my_exp(double x) {
+    double term = 1.0;
+    double sum = 1.0;
+    for (int i = 1; i < 10; ++i) {
+        term *= x / i;
+        sum += term;
+    }
+    return sum;
+}
+
+// Simple implementation of the power function
+double my_pow(double base, double exponent) {
+    double result = 1.0;
+    for (int i = 0; i < exponent; ++i) {
+        result *= base;
+    }
+    return result;
+}
 
 // Function to generate a Gaussian
 double generate_gaussian(double a, double b, double c, double x) {
-    return a * exp(-pow((x - b), 2) / (2 * pow(c, 2)));
+    return a * my_exp(-my_pow((x - b), 2) / (2 * my_pow(c, 2)));
 }
+
 void setup() {
     Serial.begin(9600);
 
