@@ -1,31 +1,21 @@
-// Simple implementation of the exponential function
-double my_exp(double x) {
-    double term = 1.0;
-    double sum = 1.0;
-    for (int i = 1; i < 10; ++i) {
-        term *= x / i;
-        sum += term;
-    }
-    return sum;
-}
-
-// Simple implementation of the power function
-double my_pow(double base, double exponent) {
-    double result = 1.0;
-    for (int i = 0; i < exponent; ++i) {
-        result *= base;
-    }
-    return result;
-}
-
+#include <Adafruit_MCP4728.h>
+#include <Wire.h>
+Adafruit_MCP4728 mcp;
 // Function to generate a Gaussian
 double generate_gaussian(double a, double b, double c, double x) {
-    return a * my_exp(-my_pow((x - b), 2) / (2 * my_pow(c, 2)));
+    return a * exp(-pow((x - b), 2) / (2 * pow(c, 2)));
 }
 
 void setup() {
     Serial.begin(9600);
 
+    // Try to initialize!
+  if (!mcp.begin()) {
+    Serial.println("Failed to find MCP4728 chip");
+    while (1) {
+      delay(10);
+    }
+  }
     // Example usage:
     // Parameters for the Gaussian function
     double a = 1.0;  // Amplitude
@@ -39,7 +29,7 @@ void setup() {
     for (int i = 0; i < num_points; ++i) {
         x_values[i] = -5.0 + i * step_size;
     }
-
+    
     // Compute y values using the Gaussian function
     double y_values[num_points];
     for (int i = 0; i < num_points; ++i) {
@@ -52,6 +42,10 @@ void setup() {
         Serial.print(x_values[i]);
         Serial.print(", y: ");
         Serial.println(y_values[i]);
+        int f=static_cast<int>(y_values[i]*4095.0);
+        Serial.print(", f: ");
+        Serial.println(f);
+        mcp.setChannelValue(MCP4728_CHANNEL_A,f);
     }
 }
 
