@@ -3,6 +3,7 @@ const int ledPin = 13; // Define the pin connected to the LED
 void setup() {
   pinMode(ledPin, OUTPUT); // Set the LED pin as an output
   Serial.begin(115200);    // Initialize serial communication at 115200 baud rate
+  digitalWrite(ledPin, LOW); // Turn off the LED
 }
 
 void loop() {
@@ -14,4 +15,6 @@ void loop() {
       digitalWrite(ledPin, LOW); // Turn off the LED
     }
   }
+  delay(1000);
+  digitalWrite(ledPin, LOW); // Turn off the LED
 }
