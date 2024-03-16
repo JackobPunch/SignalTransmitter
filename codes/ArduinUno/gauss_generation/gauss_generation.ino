@@ -32,22 +32,28 @@ void setup() {
         x_values[i] = -5.0 + i * step_size;
     }
 
+    // Array to store non-zero f values
+    int non_zero_f_values[num_points];
+    int count = 0; // Counter for non-zero values
+
     // Compute y values using the Gaussian function
-    double y_values[num_points];
     for (int i = 0; i < num_points; ++i) {
-        y_values[i] = generate_gaussian(a, b, c, x_values[i]);
+        double y_value = generate_gaussian(a, b, c, x_values[i]);
+        int f = static_cast<int>(y_value * 4095.0);
+        Serial.println(i);
+        if (f != 0) {
+            non_zero_f_values[count] = f;
+            count++;
+        }
     }
 
-    // Output the x and y values
-    for (int i = 0; i < num_points; ++i) {
-        Serial.print("x: ");
-        Serial.print(x_values[i]);
-        Serial.print(", y: ");
-        Serial.println(y_values[i]);
-        int f=static_cast<int>(y_values[i]*4095.0);
-        Serial.print(", f: ");
-        Serial.println(f);
-        mcp.setChannelValue(MCP4728_CHANNEL_A,f);
+    // Output non-zero f values
+    Serial.println("Non-zero f values:");
+    for (int i = 0; i < count; ++i) {
+        Serial.println(non_zero_f_values[i]);
+    }
+    for (int i = 0; i < count; ++i) {
+        mcp.setChannelValue(MCP4728_CHANNEL_A, non_zero_f_values[i]);
     }
 }
 
