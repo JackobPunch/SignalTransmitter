@@ -34,8 +34,15 @@ void setup() {
 
     // Array to store non-zero f values
     int non_zero_f_values[num_points];
-    int count = 0; // Counter for non-zero values
 
+    int deleyValue{5};
+    int f_values_with_zeroes[num_points+deleyValue];
+    // Initialize first deleyValue values with zeroes
+    for (int i = 0; i < deleyValue; ++i) {
+        f_values_with_zeroes[i] = 0;
+    }
+
+    int count = 0; // Counter for non-zero values
     // Compute y values using the Gaussian function
     for (int i = 0; i < num_points; ++i) {
         double y_value = generate_gaussian(a, b, c, x_values[i]);
@@ -43,6 +50,7 @@ void setup() {
         Serial.println(i);
         if (f != 0) {
             non_zero_f_values[count] = f;
+            f_values_with_zeroes[count+deleyValue]=f;
             count++;
         }
     }
@@ -54,6 +62,7 @@ void setup() {
     }
     for (int i = 0; i < count; ++i) {
         mcp.setChannelValue(MCP4728_CHANNEL_A, non_zero_f_values[i]);
+        mcp.setChannelValue(MCP4728_CHANNEL_B, f_values_with_zeroes[i]);
     }
 }
 
