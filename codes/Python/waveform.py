@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Provide the full or relative path to your CSV file
-file_path = r'C:\Users\rolni\OneDrive\Pulpit\Kody\Dziekan\SignalTransmitter\data\vehicle1\2022_12_13_13_59_34_KANAL1_KANAL2.csv'
+file_path = r'C:\Users\rolni\kody\Dziekan\SignalTransmitter\data\vehicle1\2022_12_13_13_59_34_KANAL1_KANAL2.csv'
 
 # Read the CSV file into a DataFrame
 df = pd.read_csv(file_path, delimiter=';')
