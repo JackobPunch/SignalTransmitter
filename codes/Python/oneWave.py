@@ -12,7 +12,10 @@ def gaussian(x, a, b, c):
 
 # Get the x values and y values from the data
 x_values = data.index.values
-y_values = data.values.flatten()
+y_values = data.values.flatten() - 370
+
+# Use np.maximum to replace negative values with 0
+y_values = np.maximum(y_values, 0)
 
 # Use curve_fit to find optimal parameters
 popt, pcov = curve_fit(gaussian, x_values, y_values)

@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
+from scipy.signal import find_peaks
 
 def gaussian(x, a, b, c):
     return a * np.exp(-((x - b)**2) / (2 * c**2))
@@ -14,23 +15,27 @@ df = pd.read_csv(file_path, delimiter=';')
 # Filter the DataFrame to include only rows where Loop1 and Loop2 are within the designated range
 df = df[(df['X'] > 609) & (df['X'] < 2275)]
 
-# Define the regions manually
-regions = [(100, 200), (300, 400), (500, 600)]  # replace with your actual regions
+peaks, _ = find_peaks(df['KANAL1'], prominence=100,distance=50)  # adjust the prominence as needed
 
-# For each region, fit a Gaussian
-for start, end in regions:
-    # Define a region
-    region = df.iloc[start:end]
+# Find peaks in the data
+for peak in peaks:
+    # Define a region around the peak
+    region = df.iloc[max(0, peak-120):min(len(df), peak+70)]
+    
+    # Check if the region is empty
+    if region.empty:
+        print(f"No data in region for peak at {peak}")
+        continue
     
     # Get the x values and y values from the region
-    x_values = region['X'].values
+    x_values = region.index.values
     y_values = region['KANAL1'].values
 
     # Use curve_fit to find optimal parameters
     popt, pcov = curve_fit(gaussian, x_values, y_values)
 
     # Print the optimal parameters
-    print(f"Optimal parameters for region {start}-{end} are a={popt[0]}, b={popt[1]}, c={popt[2]}")
+    print(f"Optimal parameters for peak at {peak} are a={popt[0]}, b={popt[1]}, c={popt[2]}")
 
     # Plot the data
     plt.figure(figsize=(10, 6))
