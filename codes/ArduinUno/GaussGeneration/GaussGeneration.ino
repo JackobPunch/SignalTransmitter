@@ -37,7 +37,7 @@ void setup() {
         x_values[i] = -5.0 + i * step_size;
     }
 
-    // Initialize first deleyValue values with zeroes
+    // Initialize first f_values_with_zeroes values with zeroes
     for (int i = 0; i < deleyValue; ++i) {
         f_values_with_zeroes[i] = 0;
     }

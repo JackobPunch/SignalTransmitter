@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 # Load the data
-data = pd.read_csv('data.csv')
+data = pd.read_csv('data2.csv')
 
 # Define the Gaussian function
 def gaussian(x, a, b, c):
