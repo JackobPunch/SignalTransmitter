@@ -2,12 +2,16 @@
 #include <Wire.h>
 
 Adafruit_MCP4728 mcp;
-int values1[]={366,366,388,398,402,419,471,509,607,643,741,797,915,979,1127,1197,1366,1443,1550,1600,1696,1738,1793,1824,1869,1896,1900,1904,1925,1923,1916,1926,1948,1947,1957,1973,1987,2005,2041,2047,2064,2068,2078,2076,2065,2041,1967,1924,1829,1765,1639,1568,1429,1351,1179,1099,952,890,785,734,649,628,540,502,460,432,408,405,411,430,432,412,401,405,396,398,388,385,371,371,371};
-int values2[]={371,371,371,366,366,388,398,402,419,471,509,607,643,741,797,915,979,1127,1197,1366,1443,1550,1600,1696,1738,1793,1824,1869,1896,1900,1904,1925,1923,1916,1926,1948,1947,1957,1973,1987,2005,2041,2047,2064,2068,2078,2076,2065,2041,1967,1924,1829,1765,1639,1568,1429,1351,1179,1099,952,890,785,734,649,628,540,502,460,432,408,405,411,430,432,412,401,405,396,398,388,385};
+int values1[]={374,364,393,415,472,547,660,749,884,1008,1160,1262,1358,1435,1461,1493,1518,1533,1549,1557,1558,1565,1555,1526,1466,1343,1217,1098,962,833,695,589,512,474,417,392,397,410,386,389,382,393,377};
+int values2[]={388,412,486,624,764,944,1164,1409,1573,1719,1805,1879,1906,1927,1926,1952,1956,2004,2043,2064,2088,2056,1946,1800,1603,1394,1135,925,758,642,514,445,407,404,407,401,393,384,397,379,383,373};
+int values3[]={415,469,554,620,782,881,1015,1152,1248,1332,1380,1426,1438,1452,1455,1462,1475,1488,1502,1507,1478,1424,1339,1230,1088,938,793,680,594,504,442,403,424,398,393,376};
+int values4[]={407,420,467,516,578,641,758,903,997,1128,1241,1373,1408,1485,1474,1480,1491,1518,1551,1567,1574,1582,1518,1449,1370,1261,1177,1004,868,755,645,553,482,433,407,391};
+int values5[]={407,437,478,540,618,714,837,965,1125,1243,1344,1414,1461,1496,1519,1533,1547,1551,1573,1587,1591,1585,1553,1488,1394,1270,1136,980,838,726,588,507,449,449,392};
+int shifftt=5;
+
 void setup() {
   Serial.begin(9600);
 
-  // Try to initialize!
   if (!mcp.begin()) {
     Serial.println("Failed to find MCP4728 chip");
     while (1) {
@@ -17,10 +21,64 @@ void setup() {
 }
 
 void loop() {
-  for(int i = 0; i < sizeof(values2)/sizeof(values2[0]); i++) {
+  for(int i = 0; i < sizeof(values1)/sizeof(values1[0])+shifftt; i++) {
+    if(i>=sizeof(values1)/sizeof(values1[0])){
+      mcp.setChannelValue(MCP4728_CHANNEL_A, values1[sizeof(values1)/sizeof(values1[0])-1]);
+    }else{
     mcp.setChannelValue(MCP4728_CHANNEL_A, values1[i]); 
-    mcp.setChannelValue(MCP4728_CHANNEL_B, values2[i]);
+    }
+    if(i >= shifftt) {
+      mcp.setChannelValue(MCP4728_CHANNEL_B, values1[i-shifftt]);
+    }
     delayMicroseconds(150);
   }
-  delay(2000);
+  delay(1000);
+  for(int i = 0; i < sizeof(values2)/sizeof(values2[0])+shifftt; i++) {
+    if(i>=sizeof(values2)/sizeof(values2[0])){
+      mcp.setChannelValue(MCP4728_CHANNEL_A, values2[sizeof(values2)/sizeof(values2[0])-1]);
+    }else{
+    mcp.setChannelValue(MCP4728_CHANNEL_A, values2[i]); 
+    }
+    if(i >= shifftt) {
+      mcp.setChannelValue(MCP4728_CHANNEL_B, values2[i-shifftt]);
+    }
+    delayMicroseconds(150);
+  }
+  delay(1000);
+  for(int i = 0; i < sizeof(values3)/sizeof(values3[0])+shifftt; i++) {
+    if(i>=sizeof(values3)/sizeof(values3[0])){
+      mcp.setChannelValue(MCP4728_CHANNEL_A, values3[sizeof(values3)/sizeof(values3[0])-1]);
+    }else{
+    mcp.setChannelValue(MCP4728_CHANNEL_A, values3[i]); 
+    }
+    if(i >= shifftt) {
+      mcp.setChannelValue(MCP4728_CHANNEL_B, values3[i-shifftt]);
+    }
+    delayMicroseconds(150);
+  }
+  delay(1000);
+  for(int i = 0; i < sizeof(values4)/sizeof(values4[0])+shifftt; i++) {
+    if(i>=sizeof(values4)/sizeof(values4[0])){
+      mcp.setChannelValue(MCP4728_CHANNEL_A, values4[sizeof(values4)/sizeof(values4[0])-1]);
+    }else{
+    mcp.setChannelValue(MCP4728_CHANNEL_A, values4[i]); 
+    }
+    if(i >= shifftt) {
+      mcp.setChannelValue(MCP4728_CHANNEL_B, values4[i-shifftt]);
+    }
+    delayMicroseconds(150);
+  }
+  delay(1000);
+  for(int i = 0; i < sizeof(values5)/sizeof(values5[0])+shifftt; i++) {
+    if(i>=sizeof(values5)/sizeof(values5[0])){
+      mcp.setChannelValue(MCP4728_CHANNEL_A, values5[sizeof(values5)/sizeof(values5[0])-1]);
+    }else{
+    mcp.setChannelValue(MCP4728_CHANNEL_A, values5[i]); 
+    }
+    if(i >= shifftt) {
+      mcp.setChannelValue(MCP4728_CHANNEL_B, values5[i-shifftt]);
+    }
+    delayMicroseconds(150);
+  }
+  delay(5000);
 }

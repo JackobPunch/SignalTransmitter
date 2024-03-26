@@ -8,7 +8,7 @@ def create_new_csv_without_every_second_and_third_row(input_csv, output_csv):
         data = [row for row in reader]
 
     # Remove every second and third row
-    new_data = [row for i, row in enumerate(data) if (i + 1) % 2 != 0 and (i + 1) % 3 != 0]
+    new_data = [row for i, row in enumerate(data) if (i + 1) % 6 == 0]
 
     # Write the modified data to a new CSV file
     with open(output_csv, 'w', newline='') as file:
