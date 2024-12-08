@@ -3,11 +3,11 @@
 
 Adafruit_MCP4728 mcp;
 
-const int delaySteps = 35; //delay between channels given as a number of values
+const int delaySteps = 1; //delay between channels given as a number of values
 int microSnail=0; //delay between values in microseconds
 int buffer[delaySteps]; // Buffer for the second DAC
-int snaill[]={201000,318000,42000,42000,5000000}; //delay between fluctations
-int values1[]={1,415,472,547,660,749,884,1008,1160,1262,1358,1435,1461,1493,1518,1533,1549,1557,1558,1565,1555,1526,1466,1343,1217,1098,962,833,695,589,512,474,417,380,1};
+int snaill[]={206000,325000,47000,47000,5000000}; //delay between fluctations
+int values1[]={415,472,547,660,749,884,1008,1160,1262,1358,1435,1461,1493,1518,1533,1549,1557,1558,1565,1555,1526,1466,1343,1217,1098,962,833,695,589,512,474,417,380};
 int values2[]={412,486,624,764,944,1164,1409,1573,1719,1805,1879,1906,1927,1926,1952,1956,2004,2043,2064,2088,2056,1946,1800,1603,1394,1135,925,758,642,514,445,407,380};
 int values3[]={415,469,554,620,782,881,1015,1152,1248,1332,1380,1426,1438,1452,1455,1462,1475,1488,1502,1507,1478,1424,1339,1230,1088,938,793,680,594,504,442,403,380};
 int values4[]={420,467,516,578,641,758,903,997,1128,1241,1373,1408,1485,1474,1480,1491,1518,1551,1567,1574,1582,1518,1449,1370,1261,1177,1004,868,755,645,553,482,380};
@@ -22,28 +22,36 @@ void adjustSnaill(int* snaill, int size, int delaySteps) {
 }
 
 void processValues(int* values, int size, int delaySteps, int snailll) {
-    int bufferIndex = 0;
-    int buffer[delaySteps] = {380}; // Buffer for the second DAC initialized with default value
-
-    for (int i = 0; i < size + delaySteps; i++) {
-        if (i < size) {
+    if (delaySteps == 0) {
+        for (int i = 0; i < size; i++) {
             mcp.setChannelValue(MCP4728_CHANNEL_A, values[i]);
-        } else {
-            mcp.setChannelValue(MCP4728_CHANNEL_A, values[size - 1]);
+            mcp.setChannelValue(MCP4728_CHANNEL_B, values[i]);
+            delayMicroseconds(microSnail);
         }
+    } else {
+        int bufferIndex = 0;
+        int buffer[delaySteps]; // Buffer for the second DAC
 
-        if (i >= delaySteps) {
-            mcp.setChannelValue(MCP4728_CHANNEL_B, buffer[bufferIndex]);
-        } else {
-            mcp.setChannelValue(MCP4728_CHANNEL_B, 380); // Default value if within delay
+        for (int i = 0; i < size + delaySteps; i++) {
+            if (i < size) {
+                mcp.setChannelValue(MCP4728_CHANNEL_A, values[i]);
+            } else {
+                mcp.setChannelValue(MCP4728_CHANNEL_A, values[size - 1]);
+            }
+
+            if (i >= delaySteps) {
+                mcp.setChannelValue(MCP4728_CHANNEL_B, buffer[bufferIndex]);
+            } else {
+                mcp.setChannelValue(MCP4728_CHANNEL_B, 380); // Default value if within delay
+            }
+
+            if (i < size) {
+                buffer[bufferIndex] = values[i];
+            }
+            bufferIndex = (bufferIndex + 1) % delaySteps;
+
+            delayMicroseconds(microSnail);
         }
-
-        if (i < size) {
-            buffer[bufferIndex] = values[i];
-        }
-        bufferIndex = (bufferIndex + 1) % delaySteps;
-
-        delayMicroseconds(microSnail);
     }
 
     delayMicroseconds(snailll);

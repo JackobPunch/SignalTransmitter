@@ -4,7 +4,7 @@
 Adafruit_MCP4728 mcp;
 
 int microSnail=400; //delay between values in microseconds
-int shifftt=5; //delay between channels given as a number of values
+int shifftt=0; //delay between channels given as a number of values
 int snaill[]={201,318,41,44,5000}; //delay between fluctations
 int values1[]={374,364,393,415,472,547,660,749,884,1008,1160,1262,1358,1435,1461,1493,1518,1533,1549,1557,1558,1565,1555,1526,1466,1343,1217,1098,962,833,695,589,512,474,417,392,397,410,386,389,382,393,377};
 int values2[]={388,412,486,624,764,944,1164,1409,1573,1719,1805,1879,1906,1927,1926,1952,1956,2004,2043,2064,2088,2056,1946,1800,1603,1394,1135,925,758,642,514,445,407,404,407,401,393,384,397,379,383,373};
